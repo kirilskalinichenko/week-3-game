@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Psychic Game</title>
+
+</head>
+<body>
+
+<!--This is where game is stored-->
+<div id = "game">
+	<p>Guess what letters I'm thinking of</p>
+</div>
+
+<script type="text/javascript">
+	
+	// Defines computer choices for a letter
+	var computerChoice = [];
+	for (i=97; i<122; i++){
+		computerChoice[computerChoice.length] =String.fromCharCode(i)
+	} 
+
+	 //Declares tallies to 0
+	 var wins = 0;
+	 var losses = 0;
+	 var guessLeft = 5;
+	 var guessMade = 0;
+
+	 //Recording user input as a lower case letter
+	 document.onkeyup = function(event) {
+	 	var userPick = String.fromCharCode(event.keyCode).toLowerCase();
+	 }
+
+
+	 //set computer guess to a random letter
+	 var computerPick = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+
+	 //making sure user choses letters only - not sure how to do this ??
+
+	 //if userPick = computerPick - add one to var 'win', otherwise, add one to 'losses'
+
+	 //then, add one to 'guessMade' and subtract one from 'guessLeft'
+	 if (userPick === computerPick) {
+	 	wins++;
+	 }
+	 else {
+	 	losses++; guessMade++; guessLeft--;
+	 }
+    
+    // Displaying in HTML
+    var html = "<p>Guess what letters I'm thinking of</p>" +
+    "<p>wins: " + 
+    wins + 
+    "</p>" + 
+    "<p>losses: " + 
+    losses + 
+    "</p>" + 
+    "<p>guessLeft: " + 
+    guesses left +
+    "</p>" + 
+    "<p>guessMade: " + 
+    guesses made + 
+    "</p>";
+	 
+	 document.querySelector('#game').innerHTML = html;
+
+
+
+</script>
+	
+</body>
+</html>  
